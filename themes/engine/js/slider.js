@@ -77,6 +77,7 @@ import Swiper, {Navigation, Pagination, Thumbs, EffectFade} from 'swiper';
             pagination: pagination,                
             spaceBetween: 10,
             slidesPerView: 1,
+            allowTouchMove: false,
             effect: 'fade',
             fadeEffect: {
                 crossFade: true
