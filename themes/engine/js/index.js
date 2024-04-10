@@ -274,5 +274,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 modalBoot.show();                
             })
         })
-    }  
+    }
+    document.querySelectorAll('.modules__img').forEach(item => {        
+        let src = item.querySelector('img').src;
+        let backBlock = document.createElement('div');
+        backBlock.classList.add('modules__img-back');
+        backBlock.style.backgroundImage = `url(${src})`;
+        item.appendChild(backBlock);             
+
+    })
 })
