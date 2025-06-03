@@ -108,7 +108,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 mapLoad();  
             }
         })
-    }        
+    } 
+    document.querySelectorAll('.js_benefit').forEach(item => {        
+        item.querySelector('.js_benefit__close').addEventListener('click', ()=>{
+            item.style.display='none';
+        }) 
+                                            
+    })        
     //notice
     // const notice = (message, delay = 4000) => {
     //     let container = document.querySelector('.js_toast_container');
