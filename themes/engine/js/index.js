@@ -109,12 +109,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
     } 
-    document.querySelectorAll('.js_benefit').forEach(item => {        
-        item.querySelector('.js_benefit__close').addEventListener('click', ()=>{
-            item.style.display='none';
-        }) 
-                                            
-    })        
+    document.querySelectorAll('.js_benefit').forEach(item => {                
+        if(!localStorage.exitPopupShowed){
+            item.style.display='block';
+            item.querySelector('.js_benefit__close').addEventListener('click', ()=>{
+                item.style.display='none';            
+                let date = new Date();
+                date.setTime(date.getTime() + (24 * 60 * 60 * 1000));
+                localStorage.setItem('exitPopupShowed', date);                                
+            })
+        }                                                 
+    })
+    if(new Date(localStorage.exitPopupShowed) <= new Date()){
+        delete localStorage.exitPopupShowed       
+    }            
     //notice
     // const notice = (message, delay = 4000) => {
     //     let container = document.querySelector('.js_toast_container');
